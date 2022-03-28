@@ -6,6 +6,7 @@ import com.example.LoginService.model.JwtResponse;
 import com.example.LoginService.model.LoginRequest;
 import com.example.LoginService.model.LoginTable;
 import com.example.LoginService.service.LoginTableService;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
@@ -44,19 +45,21 @@ public class LoginController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity signup(@RequestBody LoginRequest request) throws Exception{
-        System.out.println(request);
-        try{
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
-        }catch (UsernameNotFoundException e){
-            e.printStackTrace();
-            throw new Exception("Bad Credentials");
-        }catch (BadCredentialsException e){
-            e.printStackTrace();
-            throw new Exception("Bad Credentials");
-        }
+    public ResponseEntity<?> signup(@RequestBody LoginRequest request) throws Exception{
+//        System.out.println(request);
+//        try{
+//            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+//        }catch (UsernameNotFoundException e){
+//            e.printStackTrace();
+//            throw new Exception("Bad Credentials");
+//        }catch (BadCredentialsException e){
+//            e.printStackTrace();
+//            throw new Exception("Bad Credentials");
+//        }
+//
+//        return null;
 
-        return null;
+        return ResponseEntity.ok(loginTableService.login(request));
 
         // fine area..
 
@@ -70,13 +73,18 @@ public class LoginController {
 //        return ResponseEntity.ok(new JwtResponse(token));
     }
 
+    @PostMapping("/reset")
+    public ResponseEntity<?> resetPassword(@RequestBody LoginRequest request){
+        return ResponseEntity.ok(loginTableService.resetPassword(request));
+    }
+
 
     @GetMapping("/hello")
     public String hello(){
         return "<h1>Hello</h1>";
     }
 
-    @GetMapping("/getDetails")
+    @GetMapping("/getAllDetails")
     public ResponseEntity<?> getLoginDetails(){
         return ResponseEntity.ok(loginTableService.findAllLogin());
     }

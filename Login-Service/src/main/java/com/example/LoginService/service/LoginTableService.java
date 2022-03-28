@@ -2,6 +2,7 @@ package com.example.LoginService.service;
 
 import com.example.LoginService.dao.LoginTableRepository;
 import com.example.LoginService.dao.PatientRepository;
+import com.example.LoginService.model.LoginRequest;
 import com.example.LoginService.model.LoginTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -41,8 +42,26 @@ public class LoginTableService {
         return login;
     }
 
-    public LoginTable findLoginByUsername(String username){
-        return loginTableRepository.findByUsername(username);
+    public Boolean login(LoginRequest request){
+
+        LoginTable usr = loginTableRepository.findByUsername(request.getUsername());
+
+        if(passwordEncoder.encode(request.getPassword()).equals(usr.getPassword())){
+            return true;
+        }
+        return false;
+    }
+
+    public Boolean resetPassword(LoginRequest request){
+        LoginTable usr = loginTableRepository.findByUsername(request.getUsername());
+        usr.setPassword(passwordEncoder.encode(request.getPassword()));
+        try {
+            loginTableRepository.save(usr);
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
     public List<LoginTable> findAllLogin(){
