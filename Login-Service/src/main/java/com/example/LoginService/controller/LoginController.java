@@ -45,7 +45,7 @@ public class LoginController {
         return loginTableService.saveLogin(login);
     }
 
-    @PostMapping("/signin")
+    @GetMapping("/signin")
     public ResponseEntity<?> signup(@RequestBody LoginRequest request) throws Exception{
 //        System.out.println(request);
 //        try{
@@ -93,5 +93,10 @@ public class LoginController {
     @GetMapping("/getAllDetails")
     public ResponseEntity<?> getLoginDetails(){
         return ResponseEntity.ok(loginTableService.findAllLogin());
+    }
+
+    @GetMapping("/getDetails/{id}")
+    public ResponseEntity<?> getDetails(@PathVariable("id") int id){
+        return ResponseEntity.ok(loginTableService.getDetails(id));
     }
 }

@@ -47,7 +47,7 @@ public class LoginTableService {
 
         LoginTable usr = loginTableRepository.findByUsername(request.getUsername());
 
-        if(passwordEncoder.encode(request.getPassword()).equals(usr.getPassword())){
+        if(passwordEncoder.matches(request.getPassword(), usr.getPassword()) && usr.getRole().equals(request.getRole()) && usr.isActive()){
             return true;
         }
         return false;
@@ -74,5 +74,9 @@ public class LoginTableService {
 
     public List<LoginTable> findAllLogin(){
         return loginTableRepository.findAll();
+    }
+
+    public LoginTable getDetails(int id) {
+        return loginTableRepository.findById(id).orElse(null);
     }
 }
