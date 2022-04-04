@@ -19,6 +19,6 @@ public class QuizController {
 
     @GetMapping("/analytics/{id}")
     public ResponseEntity<?> getBySectionId(@PathVariable("id") int secId){
-        return ResponseEntity.ok(quizService.getBySectionId(secId));
+        return ResponseEntity.ok(quizService.getBySectionId(secId).size());
     }
 }
