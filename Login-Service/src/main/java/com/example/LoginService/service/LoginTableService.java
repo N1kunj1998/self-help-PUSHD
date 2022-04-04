@@ -2,6 +2,7 @@ package com.example.LoginService.service;
 
 import com.example.LoginService.dao.LoginTableRepository;
 import com.example.LoginService.dao.PatientRepository;
+import com.example.LoginService.model.ForgotPasswordRequest;
 import com.example.LoginService.model.LoginRequest;
 import com.example.LoginService.model.LoginTable;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,13 @@ public class LoginTableService {
         }
         return true;
     }
+
+//    public LoginTable forgotPassword(ForgotPasswordRequest request){
+//        LoginTable usr = loginTableRepository.findByUsername(request.getUsername());
+//        if(request.getEmail() == usr.getEmail()){
+//            usr.setPassword(passwordEncoder.encode());
+//        }
+//    }
 
     public List<LoginTable> findAllLogin(){
         return loginTableRepository.findAll();

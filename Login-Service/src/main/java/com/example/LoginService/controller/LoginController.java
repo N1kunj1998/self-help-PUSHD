@@ -2,6 +2,7 @@ package com.example.LoginService.controller;
 
 import com.example.LoginService.config.CustomUserDetails;
 import com.example.LoginService.helper.JwtUtil;
+import com.example.LoginService.model.ForgotPasswordRequest;
 import com.example.LoginService.model.JwtResponse;
 import com.example.LoginService.model.LoginRequest;
 import com.example.LoginService.model.LoginTable;
@@ -77,6 +78,11 @@ public class LoginController {
     public ResponseEntity<?> resetPassword(@RequestBody LoginRequest request){
         return ResponseEntity.ok(loginTableService.resetPassword(request));
     }
+
+//    @PostMapping("/forgotPassword")
+//    public ResponseEntity<?> forgotPassword(@RequestBody ForgotPasswordRequest request){
+//        return ResponseEntity.ok(loginTableService.forgotPassword(request));
+//    }
 
 
     @GetMapping("/hello")
