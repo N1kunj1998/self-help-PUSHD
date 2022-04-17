@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("*")
 @RestController
 public class DetailsController {
     @Autowired
@@ -22,7 +23,7 @@ public class DetailsController {
     @Autowired
     private SpecialistService specialistService;
 
-    @GetMapping("/patientDetails/{did}")
+    @GetMapping("/patientDetailsDoc/{did}")
     public ResponseEntity<?> patientDetails(@PathVariable(value = "did") String did){
 
         return ResponseEntity.ok(patientService.getPatientsByDocId(did));
@@ -48,5 +49,10 @@ public class DetailsController {
     @PostMapping("/addDoctor")
     public ResponseEntity<?> addDoctor(@RequestBody Doctor doctor){
         return ResponseEntity.ok(doctorService.addDetails(doctor));
+    }
+
+    @GetMapping("/patientDetails/{id}")
+    public ResponseEntity<?> patientDetails(@PathVariable("id") int id){
+        return ResponseEntity.ok(patientService.patientDetails(id));
     }
 }

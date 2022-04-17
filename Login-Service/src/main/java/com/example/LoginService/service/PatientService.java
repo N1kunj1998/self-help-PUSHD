@@ -23,7 +23,7 @@ public class PatientService {
     }
 
     public void populate(){
-        Patient patient1 = new Patient(14,"Dipisha",new Date(),"Dipisha","Khandelwal",1,"1234");
+        Patient patient1 = new Patient(16,"Naaman",new Date(),"Naman","Agarwal",1,"1234");
         patientRepository.save(patient1);
     }
 
@@ -41,5 +41,9 @@ public class PatientService {
         System.out.println("new skippable" + newSkippable);
         patient.setSkippable(newSkippable);
         return patientRepository.save(patient);
+    }
+
+    public Patient patientDetails(int id) {
+        return patientRepository.findById(id).orElse(null);
     }
 }

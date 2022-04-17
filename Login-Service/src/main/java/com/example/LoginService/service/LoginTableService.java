@@ -13,7 +13,6 @@ import java.util.List;
 
 @Service
 public class LoginTableService {
-
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 

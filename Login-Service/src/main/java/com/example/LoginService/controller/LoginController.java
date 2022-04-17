@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@CrossOrigin("*")
 @RestController
 public class LoginController {
     @Autowired
@@ -34,7 +35,7 @@ public class LoginController {
     private JwtUtil jwtUtil;
 
     @PostMapping("/signup")
-    public LoginTable register(@RequestBody LoginTable login){
+    public ResponseEntity<?> register(@RequestBody LoginTable login){
 
 //        System.out.println("checking -> " + request);
 //        LoginTable loginExits = loginTableService.findLoginByUsername(login.getUsername());
@@ -42,7 +43,7 @@ public class LoginController {
 //            result.rejectValue("username", "error.user",
 //                    "There is already a user registered with the user name provided");
 //        }
-        return loginTableService.saveLogin(login);
+        return ResponseEntity.ok(loginTableService.saveLogin(login));
     }
 
     @GetMapping("/signin")
