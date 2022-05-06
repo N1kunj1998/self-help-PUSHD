@@ -46,6 +46,11 @@ public class LoginController {
         return ResponseEntity.ok(loginTableService.saveLogin(login));
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest request){
+        return ResponseEntity.ok(loginTableService.login(request));
+    }
+
     @GetMapping("/signin")
     public ResponseEntity<?> signup(@RequestBody LoginRequest request) throws Exception{
 //        System.out.println(request);

@@ -4,6 +4,7 @@ import com.example.LoginService.dao.LoginTableRepository;
 import com.example.LoginService.dao.PatientRepository;
 import com.example.LoginService.model.ForgotPasswordRequest;
 import com.example.LoginService.model.LoginRequest;
+import com.example.LoginService.model.LoginResponse;
 import com.example.LoginService.model.LoginTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -42,14 +43,18 @@ public class LoginTableService {
         return login;
     }
 
-    public Boolean login(LoginRequest request){
+    public LoginResponse login(LoginRequest request){
 
         LoginTable usr = loginTableRepository.findByUsername(request.getUsername());
 
+        LoginResponse res = new LoginResponse(usr.getId(), usr.getRole(),false);
+
         if(passwordEncoder.matches(request.getPassword(), usr.getPassword()) && usr.getRole().equals(request.getRole()) && usr.isActive()){
-            return true;
+            res.setValidLogin(true);
+            return res;
         }
-        return false;
+
+        return res;
     }
 
     public Boolean resetPassword(LoginRequest request){
