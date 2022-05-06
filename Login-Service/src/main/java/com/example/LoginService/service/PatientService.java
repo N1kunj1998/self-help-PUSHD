@@ -1,6 +1,8 @@
 package com.example.LoginService.service;
 
+import com.example.LoginService.dao.DoctorRepository;
 import com.example.LoginService.dao.PatientRepository;
+import com.example.LoginService.model.Doctor;
 import com.example.LoginService.model.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,11 +11,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Random;
 
 @Service
 public class PatientService {
     @Autowired
     public PatientRepository patientRepository;
+
+    @Autowired
+    public DoctorRepository doctorRepository;
 
     public List<Patient> getPatientsByDocId(String did){
         int docId = Integer.parseInt(did);
@@ -45,5 +51,14 @@ public class PatientService {
 
     public Patient patientDetails(int id) {
         return patientRepository.findById(id).orElse(null);
+    }
+
+    public Patient addPatientDetails(Patient patient) {
+        Random rand = new Random();
+        List<Doctor> doctorList = doctorRepository.findAll();
+        int idx = rand.nextInt(doctorList.size());
+        patient.setDocId(idx);
+        patient.setDateOfBirth(new Date());
+        return patientRepository.save(patient);
     }
 }

@@ -1,28 +1,17 @@
-package com.example.LoginService.controller;
+package com.example.LoginService.helper;
+
 
 import com.example.LoginService.service.EmailService;
 import com.example.LoginService.service.FetchemailService;
-import org.apache.coyote.Response;
+//import com.example.service.FetchemailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@CrossOrigin("*")
-@RestController
-public class TestController {
-//    List<String> list;
-
-//    @GetMapping("/getlist")
-//    public ResponseEntity<?> getList(){
-//        list.add("nikunj");
-//        list.add("steve");
-//        return ResponseEntity.ok("test");
-//    }
-
+@Component
+public class Schedulemail {
 
     @Autowired
     private EmailService emailservice;
@@ -30,9 +19,10 @@ public class TestController {
     @Autowired
     private FetchemailService fetchemailService;
 
-
-    @GetMapping("/cronTest")
-    public void send(){
+    @Scheduled(cron = "* * * * * *")
+    public void sentnotification()
+    {
+        System.out.println("working");
         String subject ="set your Meal";
         String message="If You have not selected Your meal, Please Fill it before 12:01 am";
         List<String> email= fetchemailService.fetchallemail();
@@ -40,5 +30,12 @@ public class TestController {
             String to= email.get(i);
             emailservice.sendEmail(subject,message,to);
         }
+
+
     }
+
+
+
+
+
 }

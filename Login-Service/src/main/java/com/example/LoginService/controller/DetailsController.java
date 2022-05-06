@@ -55,4 +55,9 @@ public class DetailsController {
     public ResponseEntity<?> patientDetails(@PathVariable("id") int id){
         return ResponseEntity.ok(patientService.patientDetails(id));
     }
+
+    @PostMapping("/addPatientDetails")
+    public ResponseEntity<?> addPatientDetails( @RequestBody Patient patient){
+        return ResponseEntity.ok(patientService.addPatientDetails(patient));
+    }
 }
