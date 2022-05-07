@@ -33,9 +33,8 @@ public class TimestampService {
         return timestampRepo.save(userTimeStamp);
     }
 
-    public Timestamp getTimestamp(int uid){
+    public List<Timestamp> getTimestamp(int uid){
         List<Timestamp> timestampList = timestampRepo.getTimestampByUserId(uid);
-        timestampList.get(timestampList.size()-1);
-        return null;
+        return timestampList;
     }
 }
