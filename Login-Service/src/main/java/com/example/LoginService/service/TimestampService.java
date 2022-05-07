@@ -13,9 +13,19 @@ public class TimestampService {
     @Autowired
     private TimestampRepo timestampRepo;
 
-    public Timestamp addTimestamp(Timestamp ts){
-        ts.setTimestamp(new Date());
+    public Timestamp addLoginTimestamp(Timestamp ts){
+        ts.setLoginTime(new Date());
         return timestampRepo.save(ts);
+    }
+
+    public Timestamp addLogoutTimestamp(Timestamp ts){
+//        ts.setLogoutTime(new Date());
+//        Timestamp userTimestamp = timestampRepo.fin;
+        List<Timestamp> timestampList = timestampRepo.getTimestampByUid(ts.getUid());
+        Timestamp userTimeStamp = timestampList.get(timestampList.size()-1);
+        System.out.println(userTimeStamp);
+        userTimeStamp.setLogoutTime(new Date());
+        return timestampRepo.save(userTimeStamp);
     }
 
     public Timestamp getTimestamp(int uid){

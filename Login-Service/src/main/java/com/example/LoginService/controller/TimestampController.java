@@ -16,9 +16,14 @@ public class TimestampController {
     @Autowired
     private TimestampService timestampService;
 
-    @PostMapping("/addTimestamp")
-    public ResponseEntity<?> addTimestamp(@RequestBody Timestamp timestamp){
-        return ResponseEntity.ok(timestampService.addTimestamp(timestamp));
+    @PostMapping("/addLoginTimestamp")
+    public ResponseEntity<?> addLoginTimestamp(@RequestBody Timestamp timestamp){
+        return ResponseEntity.ok(timestampService.addLoginTimestamp(timestamp));
+    }
+
+    @PostMapping("/addLogoutTimestamp")
+    public ResponseEntity<?> addLogoutTimestamp(@RequestBody Timestamp timestamp){
+        return ResponseEntity.ok(timestampService.addLogoutTimestamp(timestamp));
     }
 
     @GetMapping("/getTimestamp/{uid}")

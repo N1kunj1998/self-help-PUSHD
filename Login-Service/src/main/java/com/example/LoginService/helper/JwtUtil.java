@@ -58,8 +58,8 @@ public class JwtUtil {
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
-    @Scheduled(cron = "* * * * *")
-    public void testingscheduled(){
-        System.out.println("this is working");
-    }
+//    @Scheduled(cron = "* * * * * *")
+//    public void testingscheduled(){
+//        System.out.println("this is working");
+//    }
 }

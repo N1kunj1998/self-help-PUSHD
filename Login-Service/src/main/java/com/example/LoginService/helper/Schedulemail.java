@@ -19,20 +19,20 @@ public class Schedulemail {
     @Autowired
     private FetchemailService fetchemailService;
 
-    @Scheduled(cron = "* * * * * *")
-    public void sentnotification()
-    {
-        System.out.println("working");
-        String subject ="set your Meal";
-        String message="If You have not selected Your meal, Please Fill it before 12:01 am";
-        List<String> email= fetchemailService.fetchallemail();
-        for (int i = 0; i < email.size(); i++) {
-            String to= email.get(i);
-            emailservice.sendEmail(subject,message,to);
-        }
-
-
-    }
+//    @Scheduled(cron = "* * * * * *")
+//    public void sentnotification()
+//    {
+//        System.out.println("working");
+//        String subject ="set your Meal";
+//        String message="If You have not selected Your meal, Please Fill it before 12:01 am";
+//        List<String> email= fetchemailService.fetchallemail();
+//        for (int i = 0; i < email.size(); i++) {
+//            String to= email.get(i);
+//            emailservice.sendEmail(subject,message,to);
+//        }
+//
+//
+//    }
 
 
 

@@ -29,25 +29,40 @@ public class PatientService {
     }
 
     public void populate(){
-        Patient patient1 = new Patient(16,"Naaman",new Date(),"Naman","Agarwal",1,"1234");
+        Patient patient1 = new Patient(16,"Naaman",new Date(),"Naman","Agarwal",1,"12345");
         patientRepository.save(patient1);
     }
 
-    public Patient addSkippable(int id,String skip){
-        System.out.println(id + " -> " + skip);
-        Patient patient = patientRepository.getById(id);
-        System.out.println(patient);
-        String skippable = patient.getSkippable();
+//    public Patient addSkippable(int id,String skip){
+//        System.out.println(id + " -> " + skip);
+//        Patient patient = patientRepository.getById(id);
+//        System.out.println(patient);
+//        String skippable = patient.getSkippable();
+////        Pattern word = Pattern.compile(skip);
+////        Matcher match = word.matcher(skippable);
+////        int idx = match.start();
+//        int idx =  skippable.indexOf(skip);
+//        System.out.println(idx);
+//        String newSkippable = skippable.substring(0,idx);
+//        System.out.println("new skippable" + newSkippable);
+//        patient.setSkippable(newSkippable);
+//        return patientRepository.save(patient);
+//    }
+public Patient addSkippable(int id,String skip){
+    System.out.println(id + " -> " + skip);
+    Patient patient = patientRepository.getById(id);
+    System.out.println(patient);
+    String skippable = patient.getSkippable();
 //        Pattern word = Pattern.compile(skip);
 //        Matcher match = word.matcher(skippable);
 //        int idx = match.start();
-        int idx =  skippable.indexOf(skip);
-        System.out.println(idx);
-        String newSkippable = skippable.substring(0,idx);
-        System.out.println("new skippable" + newSkippable);
-        patient.setSkippable(newSkippable);
-        return patientRepository.save(patient);
-    }
+    int idx =  skippable.indexOf(skip);
+    System.out.println(idx);
+    String newSkippable = skippable.substring(0,idx);
+    System.out.println("new skippable" + newSkippable);
+    patient.setSkippable(newSkippable);
+    return patientRepository.save(patient);
+}
 
     public Patient patientDetails(int id) {
         return patientRepository.findById(id).orElse(null);
