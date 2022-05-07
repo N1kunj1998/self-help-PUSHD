@@ -10,4 +10,6 @@ public interface QuestionRepository extends JpaRepository<Questions,Integer> {
     //	public List<Questions> saveAll(List<Questions> )
     @Query("from Questions where sectionId=?1")
     ArrayList<Questions> getBySection(int sectionId);
+    @Query("select Content from Questions where qid=?1")
+    String findByQId(int qid);
 }

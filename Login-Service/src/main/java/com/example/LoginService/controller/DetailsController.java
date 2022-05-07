@@ -35,6 +35,12 @@ public class DetailsController {
         return ResponseEntity.ok("Working");
     }
 
+    @PostMapping("/populatedoctor")
+    public ResponseEntity<?> populatedoctor(){
+        doctorService.populate();
+        return ResponseEntity.ok("Working");
+    }
+
     @PostMapping("/skippable/{id}/{skip}")
     public ResponseEntity<?> skippable(@PathVariable(value = "id") int id, @PathVariable(value = "skip") String skip){
         System.out.println(id + " -> " + skip);

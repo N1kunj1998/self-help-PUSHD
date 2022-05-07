@@ -18,4 +18,5 @@ public class QuestionService {
         ArrayList<Questions> ques=(ArrayList<Questions>)quesRepository.findAll();
         return ques;
     }
+
 }

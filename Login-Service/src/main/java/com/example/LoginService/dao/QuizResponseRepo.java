@@ -6,5 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface QuizResponseRepo extends JpaRepository<QResponse, Integer> {
-    public QResponse findByKeyAndAndUserId(String key, int userid);
+//    public QResponse findByKeyAndUserId(String key, int userid);
+    public QResponse findByKeyAndUserId(String key, int userId);
+
+
 }

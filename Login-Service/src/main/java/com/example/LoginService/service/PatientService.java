@@ -2,11 +2,14 @@ package com.example.LoginService.service;
 
 import com.example.LoginService.dao.DoctorRepository;
 import com.example.LoginService.dao.PatientRepository;
+import com.example.LoginService.dao.QuizRepository;
 import com.example.LoginService.model.Doctor;
 import com.example.LoginService.model.Patient;
+import com.example.LoginService.model.Quiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -19,6 +22,8 @@ public class PatientService {
     public PatientRepository patientRepository;
 
     @Autowired
+    public QuizRepository quizRepository;
+    @Autowired
     public DoctorRepository doctorRepository;
 
     public List<Patient> getPatientsByDocId(String did){
@@ -29,7 +34,7 @@ public class PatientService {
     }
 
     public void populate(){
-        Patient patient1 = new Patient(16,"Naaman",new Date(),"Naman","Agarwal",1,"12345");
+        Patient patient1 = new Patient(23,"ram",new Date(),"ram","Agarwal",2,"12345");
         patientRepository.save(patient1);
     }
 
@@ -77,4 +82,13 @@ public Patient addSkippable(int id,String skip){
         patient.setDateOfBirth(new Date());
         return patientRepository.save(patient);
     }
+
+
+    public List<Quiz> getDoctorView(int userid)
+    {
+        List<Quiz> details = quizRepository.findById(userid);
+
+        return details;
+    }
+
 }

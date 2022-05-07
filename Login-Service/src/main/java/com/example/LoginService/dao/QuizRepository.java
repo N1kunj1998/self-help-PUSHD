@@ -1,10 +1,18 @@
 package com.example.LoginService.dao;
-
+import org.springframework.data.jpa.repository.Query;
 import com.example.LoginService.model.Quiz;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface QuizRepository extends JpaRepository<Quiz, Integer> {
-    public List<Quiz> getQuizBySectionId(int id);
+
+
+    @Query("from Quiz where patient=?1")
+    public List<Quiz> findById(int patient);
+    @Query("Select count(sectionId ) from Quiz where P_ID=?1 and SectionID=?2")
+    public Integer findByIdandSectionId(int userid,int sectionid);
+    @Query("from Quiz where patient=?1 and sectionId =?2")
+    public ArrayList<Quiz> findResponsebyIdandSectionId(int userid, int sectionid);
 }

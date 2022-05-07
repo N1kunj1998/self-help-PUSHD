@@ -15,6 +15,6 @@ public class QuizResponseService {
     }
 
     public QResponse getResponse(String key, int userid){
-        return quizResponseRepo.findByKeyAndAndUserId(key, userid);
+        return quizResponseRepo.findByKeyAndUserId(key, userid);
     }
 }
