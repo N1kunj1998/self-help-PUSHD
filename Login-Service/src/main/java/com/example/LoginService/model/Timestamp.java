@@ -18,14 +18,13 @@ public class Timestamp {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int tid; // timestamp id
-    @Column(unique = true)
-    private int uid; // user id
-    private Date loginTime;
-    private Date logoutTime;
+    private int userId; // user id
+    private String loginTime;
+    private String logoutTime;
     private boolean usefulSession;
 
-    public Timestamp(int uid, Date loginTime, Date logoutTime, boolean usefulSession) {
-        this.uid = uid;
+    public Timestamp(int userId, String loginTime, String logoutTime, boolean usefulSession) {
+        this.userId = userId;
         this.loginTime = loginTime;
         this.logoutTime = logoutTime;
         this.usefulSession = usefulSession;

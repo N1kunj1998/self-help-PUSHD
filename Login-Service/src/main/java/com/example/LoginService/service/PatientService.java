@@ -51,16 +51,17 @@ public class PatientService {
 public Patient addSkippable(int id,String skip){
     System.out.println(id + " -> " + skip);
     Patient patient = patientRepository.getById(id);
-    System.out.println(patient);
-    String skippable = patient.getSkippable();
+    patient.setSkippable(skip);
+//    System.out.println(patient);
+//    String skippable = patient.getSkippable();
 //        Pattern word = Pattern.compile(skip);
 //        Matcher match = word.matcher(skippable);
 //        int idx = match.start();
-    int idx =  skippable.indexOf(skip);
-    System.out.println(idx);
-    String newSkippable = skippable.substring(0,idx);
-    System.out.println("new skippable" + newSkippable);
-    patient.setSkippable(newSkippable);
+//    int idx =  skippable.indexOf(skip);
+//    System.out.println(idx);
+//    String newSkippable = skippable.substring(0,idx);
+//    System.out.println("new skippable" + newSkippable);
+//    patient.setSkippable(newSkippable);
     return patientRepository.save(patient);
 }
 

@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface TimestampRepo extends JpaRepository<Timestamp, Integer> {
-    public List<Timestamp> getTimestampByUid(int uid);
+    public List<Timestamp> getTimestampByUserId(int uid);
 }
