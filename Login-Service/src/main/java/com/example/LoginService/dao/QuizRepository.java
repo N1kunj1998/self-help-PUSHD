@@ -16,5 +16,5 @@ public interface QuizRepository extends JpaRepository<Quiz, Integer> {
     @Query("from Quiz where patient=?1 and sectionId =?2")
     public ArrayList<Quiz> findResponsebyIdandSectionId(int userid, int sectionid);
 
-//    public List<Quiz> findByIdAndSectionId(int id, int patient);
+    public List<Quiz> findByIdAndSectionId(int id, int patient);
 }

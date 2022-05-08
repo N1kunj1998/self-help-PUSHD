@@ -35,7 +35,7 @@ public class QuizService {
         System.out.println(m);
 //        List<Quiz> quizList= quizRepository.findByIdAndSectionId(userid, SectionId);
 //        System.out.println(quizList.size());
-        if(m!=4)
+        if(m!=6)
             return 0;
         else
             return 1;
