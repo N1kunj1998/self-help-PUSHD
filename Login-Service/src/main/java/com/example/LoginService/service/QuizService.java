@@ -1,6 +1,7 @@
 package com.example.LoginService.service;
 
 import com.example.LoginService.DTO.Content;
+import com.example.LoginService.DTO.ResModel;
 import com.example.LoginService.dao.QuestionRepository;
 import com.example.LoginService.dao.QuizRepository;
 import com.example.LoginService.dao.TimestampRepo;
@@ -21,8 +22,11 @@ public class QuizService {
     @Autowired
     private TimestampRepo timestampRepo;
 
-    public Quiz addQuiz(Quiz quiz){
-        return quizRepository.save(quiz);
+    public Quiz addQuiz(ResModel quiz){
+        Integer SectionId=ques1.findSectionById(quiz.getQid());
+        Integer SubSection= ques1.findSubSectionById(quiz.getQid());
+        Quiz q=new Quiz(SectionId,SubSection, quiz.getQid(), quiz.getPatient(), quiz.getResponse());
+        return quizRepository.save(q);
     }
 
     public Integer completed(Integer userid,Integer SectionId)

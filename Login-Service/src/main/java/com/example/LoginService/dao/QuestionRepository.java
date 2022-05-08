@@ -12,4 +12,8 @@ public interface QuestionRepository extends JpaRepository<Questions,Integer> {
     ArrayList<Questions> getBySection(int sectionId);
     @Query("select Content from Questions where qid=?1")
     String findByQId(int qid);
+    @Query("select sectionId from Questions where qid=?1")
+    Integer findSectionById(int qid);
+    @Query("select subSectionId from Questions where qid=?1")
+    Integer findSubSectionById(int qid);
 }

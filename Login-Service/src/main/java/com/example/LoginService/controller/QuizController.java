@@ -1,12 +1,13 @@
 package com.example.LoginService.controller;
 
 import com.example.LoginService.DTO.Content;
+import com.example.LoginService.DTO.ResModel;
 import com.example.LoginService.model.Quiz;
 import com.example.LoginService.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import com.example.LoginService.DTO.ResModel;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class QuizController {
     private QuizService quizService;
 
     @PostMapping("/addQuiz")
-    public ResponseEntity<?> addQuiz(@RequestBody Quiz quiz){
+    public ResponseEntity<?> addQuiz(@RequestBody ResModel quiz){
         return ResponseEntity.ok(quizService.addQuiz(quiz));
     }
 
