@@ -2,20 +2,25 @@ package com.example.LoginService.controller;
 
 import com.example.LoginService.DTO.Content;
 import com.example.LoginService.DTO.ResModel;
+import com.example.LoginService.dao.QuizRepository;
 import com.example.LoginService.model.Quiz;
 import com.example.LoginService.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.LoginService.DTO.ResModel;
+
+import javax.annotation.PostConstruct;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 @CrossOrigin("*")
 @RestController
 public class QuizController {
     public List<String> list;
-
+    @Autowired
+    private QuizRepository que;
     @Autowired
     private QuizService quizService;
 
@@ -24,10 +29,17 @@ public class QuizController {
         return ResponseEntity.ok(quizService.addQuiz(quiz));
     }
 
-    //@GetMapping("/analytics/{id}")
-   // public ResponseEntity<?> getBySectionId(@PathVariable("id") int secId){
-        //return ResponseEntity.ok(quizService.getBySectionId(secId).size());
-   // }
+    @GetMapping("/analytics/{id}")
+   public Integer getBySectionId(@PathVariable("id") int userId){
+        List<Quiz> r=que.findById(userId);
+        HashSet<Integer> set=new HashSet<>();
+        for(int i=0;i<r.size();i++) {
+//            System.out.println(r);
+            set.add(r.get(i).getSectionId());
+        }
+        return set.size();
+
+   }
 
     @GetMapping("/getlist")
     public List<String> getBySectionId(){
@@ -59,5 +71,13 @@ public class QuizController {
     {
         List<Content> n=quizService.getAllResponse(userid);
         return ResponseEntity.ok(n);
+    }
+
+    @PostConstruct
+//    @RequestMapping("/add")
+    public void populate()
+    {
+        quizService.populate();
+        return;
     }
 }

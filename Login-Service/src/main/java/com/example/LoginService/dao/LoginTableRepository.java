@@ -14,4 +14,6 @@ public interface LoginTableRepository extends JpaRepository<LoginTable, Integer>
 
     @Query(value = "select email from login_table",nativeQuery = true)
     public List<String> getAllEmail();
+
+    public LoginTable getByEmail(String email);
 }
