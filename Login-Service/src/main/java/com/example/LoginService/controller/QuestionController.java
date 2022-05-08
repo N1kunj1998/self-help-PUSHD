@@ -27,12 +27,12 @@ public class QuestionController {
     {
         questionList = new ArrayList<Questions>();
 
-        Questions q1=new Questions(1,1,1,"F","Are you likely to face some difficulties in implemneting your plan?,List them out","","","","");
-        Questions q2=new Questions(2,1,1,"F","List out your strategy that you can use to manage difficulties","","","","");
-        Questions q3=new Questions(3,1,2,"F","Do you feel lonely always","","","","");
-        Questions q4=new Questions(4,1,2,"M","How you feel happy","Dancing","Music","Novels","Web Series");
+        Questions q1=new Questions(1,1,2,"F","Are you likely to face some difficulties in implemneting your plan?,List them out","","","","");
+        Questions q2=new Questions(2,1,2,"F","List out your strategy that you can use to manage difficulties","","","","");
+        Questions q3=new Questions(3,1,3,"F","Do you feel lonely always","","","","");
+        Questions q4=new Questions(4,1,1,"M","How you feel happy","Dancing","Music","Novels","Web Series");
         Questions q5=new Questions(5,1,3,"F","Do you go outside for weeknds","","","","");
-        Questions q6=new Questions(6,1,3,"M","How you feel happy","Dancing","Music","Novels","Web Series");
+        Questions q6=new Questions(6,1,1,"M","What do you want to be?","Dancer","Musician","Novelist","Other");
         Questions q7=new Questions(7,2,1,"F","List out your strategy that you can use to manage difficulties","","","","");
         Questions q8=new Questions(8,2,1,"F","Do you go outside for weeknds","","","","");
         Questions q9=new Questions(9,2,2,"F","How do you spend your time","","","","");

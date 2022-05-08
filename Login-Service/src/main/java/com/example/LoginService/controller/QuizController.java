@@ -32,7 +32,7 @@ public class QuizController {
     @GetMapping("/getlist")
     public List<String> getBySectionId(){
         list.add("nikunj");
-        list.add("paggu");
+        list.add("srikanth");
         return list;
     }
     @GetMapping("/completed/{id}/{sectionid}")
