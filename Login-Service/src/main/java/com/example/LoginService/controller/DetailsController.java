@@ -47,6 +47,11 @@ public class DetailsController {
         return ResponseEntity.ok(patientService.addSkippable(id, skip));
     }
 
+    @GetMapping("/getSkippable/{id}")
+    public ResponseEntity<?> getSkippable(@PathVariable(value = "id") int id){
+        return ResponseEntity.ok(patientService.getSkippable(id));
+    }
+
     @PostMapping("/addSpecialist")
     public ResponseEntity<?> addSpecialist(@RequestBody Specialist specialist){
         return ResponseEntity.ok(specialistService.addDetails(specialist));

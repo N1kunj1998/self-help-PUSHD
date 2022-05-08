@@ -91,4 +91,7 @@ public Patient addSkippable(int id,String skip){
         return details;
     }
 
+    public String getSkippable(int id) {
+        return patientRepository.getById(id).getSkippable();
+    }
 }
