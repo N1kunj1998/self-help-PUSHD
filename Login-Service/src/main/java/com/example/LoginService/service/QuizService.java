@@ -16,8 +16,8 @@ import java.util.List;
 public class QuizService {
     @Autowired
     private QuizRepository quizRepository;
-     @Autowired
-     private QuestionRepository ques1;
+    @Autowired
+    private QuestionRepository ques1;
     @Autowired
     private TimestampRepo timestampRepo;
 
