@@ -22,11 +22,6 @@ public class QuizService {
     private TimestampRepo timestampRepo;
 
     public Quiz addQuiz(Quiz quiz){
-        int uid = quiz.getPatient();
-        List<Timestamp> timestampList = timestampRepo.getTimestampByUserId(uid);
-        Timestamp ts = timestampList.get(timestampList.size() - 1);
-        ts.setUsefulSession(true);
-        timestampRepo.save(ts);
         return quizRepository.save(quiz);
     }
 
