@@ -73,7 +73,7 @@ public class QuizController {
         return ResponseEntity.ok(n);
     }
 
-    @PostConstruct
+//    @PostConstruct
 //    @RequestMapping("/add")
     public void populate()
     {

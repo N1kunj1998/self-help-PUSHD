@@ -32,6 +32,9 @@ public class QuizService {
     public Integer completed(Integer userid,Integer SectionId)
     {
         Integer m=quizRepository.findByIdandSectionId(userid, SectionId);
+        System.out.println(m);
+//        List<Quiz> quizList= quizRepository.findByIdAndSectionId(userid, SectionId);
+//        System.out.println(quizList.size());
         if(m!=4)
             return 0;
         else

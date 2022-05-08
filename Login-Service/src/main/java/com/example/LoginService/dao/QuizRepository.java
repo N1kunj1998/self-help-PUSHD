@@ -11,8 +11,10 @@ public interface QuizRepository extends JpaRepository<Quiz, Integer> {
 
     @Query("from Quiz where patient=?1")
     public List<Quiz> findById(int patient);
-    @Query("Select count(sectionId ) from Quiz where P_ID=?1 and SectionID=?2")
+    @Query("Select count(sectionId ) from Quiz where patient=?1 and sectionId=?2")
     public Integer findByIdandSectionId(int userid,int sectionid);
     @Query("from Quiz where patient=?1 and sectionId =?2")
     public ArrayList<Quiz> findResponsebyIdandSectionId(int userid, int sectionid);
+
+//    public List<Quiz> findByIdAndSectionId(int id, int patient);
 }
