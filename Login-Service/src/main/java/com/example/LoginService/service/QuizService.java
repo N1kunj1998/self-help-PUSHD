@@ -32,7 +32,7 @@ public class QuizService {
     public Integer completed(Integer userid,Integer SectionId)
     {
         Integer m=quizRepository.findByIdandSectionId(userid, SectionId);
-        if(m!=5)
+        if(m!=4)
             return 0;
         else
             return 1;
@@ -66,77 +66,77 @@ public class QuizService {
     }
 
     public void populate() {
-        Quiz q1=new Quiz(1,1,1,24,"yes");
+        Quiz q1=new Quiz(1, 1,1,1,24,"yes");
         quizRepository.save(q1);
-        Quiz q2=new Quiz(1,1,2,24,"no");
+        Quiz q2=new Quiz(2, 1,1,2,24,"no");
         quizRepository.save(q2);
-        Quiz q3=new Quiz(1,2,3,24,"yes");
+        Quiz q3=new Quiz(3, 1,2,3,24,"yes");
         quizRepository.save(q3);
-        Quiz q4=new Quiz(1,2,4,24,"dancing");
+        Quiz q4=new Quiz(4, 1,2,4,24,"dancing");
         quizRepository.save(q4);
-        Quiz q5=new Quiz(1,3,5,24,"no");
+        Quiz q5=new Quiz(5, 1,3,5,24,"no");
         quizRepository.save(q5);
-        Quiz q6=new Quiz(1,3,6,24,"music");
+        Quiz q6=new Quiz(6,1,3,6,24,"music");
         quizRepository.save(q6);
-        Quiz q7=new Quiz(2,1,7,24,"meditation");
+        Quiz q7=new Quiz(7,2,1,7,24,"meditation");
         quizRepository.save(q7);
-        Quiz q8=new Quiz(2,1,8,24,"no");
+        Quiz q8=new Quiz(8, 2,1,8,24,"no");
         quizRepository.save(q8);
-        Quiz q9=new Quiz(2,2,9,24,"yes");
+        Quiz q9=new Quiz(9,2,2,9,24,"yes");
         quizRepository.save(q9);
-        Quiz q10=new Quiz(2,2,10,24,"yes");
+        Quiz q10=new Quiz(10, 2,2,10,24,"yes");
         quizRepository.save(q10);
-        Quiz q11=new Quiz(2,3,11,24,"no");
+        Quiz q11=new Quiz(11,2,3,11,24,"no");
         quizRepository.save(q11);
-        Quiz q12=new Quiz(2,3,12,24,"yes");
+        Quiz q12=new Quiz(12, 2,3,12,24,"yes");
         quizRepository.save(q12);
-        Quiz q13=new Quiz(3,1,13,24,"yes");
+        Quiz q13=new Quiz(13,3,1,13,24,"yes");
         quizRepository.save(q13);
-        Quiz q14=new Quiz(3,1,14,24,"no");
+        Quiz q14=new Quiz(14,3,1,14,24,"no");
         quizRepository.save(q14);
-        Quiz q15=new Quiz(3,2,15,24,"yes");
+        Quiz q15=new Quiz(15,3,2,15,24,"yes");
         quizRepository.save(q15);
-        Quiz q16=new Quiz(3,2,16,24,"yes");
+        Quiz q16=new Quiz(16,3,2,16,24,"yes");
         quizRepository.save(q16);
-        Quiz q17=new Quiz(3,3,17,24,"no");
+        Quiz q17=new Quiz(17,3,3,17,24,"no");
         quizRepository.save(q17);
-        Quiz q18=new Quiz(3,3,18,24,"yes");
+        Quiz q18=new Quiz(18,3,3,18,24,"yes");
         quizRepository.save(q18);
-        Quiz q19=new Quiz(4,1,19,24,"yes");
+        Quiz q19=new Quiz(19, 4,1,19,24,"yes");
         quizRepository.save(q19);
-        Quiz q20=new Quiz(4,1,20,24,"no");
+        Quiz q20=new Quiz(20,4,1,20,24,"no");
         quizRepository.save(q20);
-        Quiz q21=new Quiz(4,2,21,24,"yes");
+        Quiz q21=new Quiz(21,4,2,21,24,"yes");
         quizRepository.save(q21);
-        Quiz q22=new Quiz(4,2,22,24,"yes");
+        Quiz q22=new Quiz(22,4,2,22,24,"yes");
         quizRepository.save(q22);
-        Quiz q23=new Quiz(4,3,23,24,"music");
+        Quiz q23=new Quiz(23,4,3,23,24,"music");
         quizRepository.save(q23);
-        Quiz q24=new Quiz(4,3,24,24,"yes");
+        Quiz q24=new Quiz(24,4,3,24,24,"yes");
         quizRepository.save(q24);
-        Quiz q25=new Quiz(5,1,25,24,"yes");
+        Quiz q25=new Quiz(25,5,1,25,24,"yes");
         quizRepository.save(q25);
-        Quiz q26=new Quiz(5,1,26,24,"no");
+        Quiz q26=new Quiz(26, 5,1,26,24,"no");
         quizRepository.save(q26);
-        Quiz q27=new Quiz(5,2,27,24,"yes");
+        Quiz q27=new Quiz(27, 5,2,27,24,"yes");
         quizRepository.save(q27);
-        Quiz q28=new Quiz(5,2,28,24,"yes");
+        Quiz q28=new Quiz(28, 5,2,28,24,"yes");
         quizRepository.save(q28);
-        Quiz q29=new Quiz(5,3,29,24,"no");
+        Quiz q29=new Quiz(29, 5,3,29,24,"no");
         quizRepository.save(q29);
-        Quiz q30=new Quiz(5,3,30,24,"music");
+        Quiz q30=new Quiz(30, 5,3,30,24,"music");
         quizRepository.save(q30);
-        Quiz q31=new Quiz(1,1,1,16,"yes");
+        Quiz q31=new Quiz(31, 1,1,1,16,"yes");
         quizRepository.save(q31);
-        Quiz q32=new Quiz(1,1,2,16,"no");
+        Quiz q32=new Quiz(32,1,1,2,16,"no");
         quizRepository.save(q32);
-        Quiz q33=new Quiz(1,2,3,16,"yes");
+        Quiz q33=new Quiz(33, 1,2,3,16,"yes");
         quizRepository.save(q33);
-        Quiz q34=new Quiz(1,1,1,18,"yes");
+        Quiz q34=new Quiz(34, 1,1,1,18,"yes");
         quizRepository.save(q34);
-        Quiz q35=new Quiz(1,1,2,18,"no");
+        Quiz q35=new Quiz(35, 1,1,2,18,"no");
         quizRepository.save(q35);
-        Quiz q36=new Quiz(1,2,3,181,"yes");
+        Quiz q36=new Quiz(36, 1,2,3,181,"yes");
         quizRepository.save(q36);
     }
 }
